@@ -254,6 +254,62 @@ Editted
     min-height:70px;
 }
 
+/* Team cards */
+.trainers-index .member{
+    text-align:center;
+    border-radius:15px;
+    overflow:hidden;
+    height:100%;
+    padding-bottom:20px;
+}
+
+/* Same image area for all members */
+.team-img-box{
+    width:100%;
+    height:240px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:#fff;
+}
+
+/* Same image size */
+.team-img{
+    width:180px;
+    height:220px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* Equal content height */
+.member-content{
+    min-height:190px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+}
+
+.member-content h4{
+    font-size:20px;
+    margin-bottom:5px;
+}
+
+.member-content span{
+    color:#888;
+    font-style:italic;
+}
+
+.member-content p{
+    min-height:80px;
+    font-size:14px;
+}
+
+.social{
+    margin-top:auto;
+}
+
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
