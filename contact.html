@@ -186,65 +186,59 @@
       <!-- Contact Form -->
       <div class="col-lg-8">
 
-        <form action="forms/contact.php"
-              method="post"
-              class="php-email-form"
-              data-aos="fade-up"
-              data-aos-delay="200">
+        <form action="https://formsubmit.co/balaji.gn@vit.ac.in"
+      method="POST"
+      class="php-email-form"
+      data-aos="fade-up"
+      data-aos-delay="200">
 
-          <div class="row gy-4">
+  <!-- FormSubmit settings -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_subject"
+         value="New Message from AQVS Website">
+  <input type="hidden" name="_template" value="table">
 
-            <div class="col-md-6">
-              <input type="text"
-                     name="name"
-                     class="form-control"
-                     placeholder="Your Name"
-                     required>
-            </div>
+  <div class="row gy-4">
 
-            <div class="col-md-6">
-              <input type="email"
-                     name="email"
-                     class="form-control"
-                     placeholder="Your Email"
-                     required>
-            </div>
+    <div class="col-md-6">
+      <input type="text"
+             name="Name"
+             class="form-control"
+             placeholder="Your Name"
+             required>
+    </div>
 
-            <div class="col-md-12">
-              <input type="text"
-                     name="subject"
-                     class="form-control"
-                     placeholder="Subject"
-                     required>
-            </div>
+    <div class="col-md-6">
+      <input type="email"
+             name="Email"
+             class="form-control"
+             placeholder="Your Email"
+             required>
+    </div>
 
-            <div class="col-md-12">
-              <textarea class="form-control"
-                        name="message"
-                        rows="7"
-                        placeholder="Write your message here..."
-                        required></textarea>
-            </div>
+    <div class="col-md-12">
+      <input type="text"
+             name="Subject"
+             class="form-control"
+             placeholder="Subject"
+             required>
+    </div>
 
-            <div class="col-md-12 text-center">
+    <div class="col-md-12">
+      <textarea class="form-control"
+                name="Message"
+                rows="7"
+                placeholder="Write your message here..."
+                required></textarea>
+    </div>
 
-              <div class="loading">Loading</div>
+    <div class="col-md-12 text-center">
+      <button type="submit">Send Message</button>
+    </div>
 
-              <div class="error-message"></div>
+  </div>
 
-              <div class="sent-message">
-                Thank you! Your message has been sent successfully.
-              </div>
-
-              <button type="submit">
-                Send Message
-              </button>
-
-            </div>
-
-          </div>
-
-        </form>
+</form>
 
       </div>
       <!-- End Contact Form -->
