@@ -266,55 +266,39 @@ Editted
 ========================= */
 
 .team-img-box{
-    width:100%;
-    height:240px;
+    height:180px;
     display:flex;
     justify-content:center;
     align-items:center;
     background:#fff;
-    overflow:hidden;
-    margin-bottom:20px;
 }
 
 .team-img{
-    width:180px;
-    height:220px;
+    width:120px;
+    height:150px;
     object-fit:cover;
-    border-radius:12px;
+    border-radius:10px;
 }
 
-
-/* =========================
-   Content Area
-========================= */
-
 .member-content{
-    min-height:190px;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:flex-start;
+    min-height:150px;
 }
 
 .member-content h4{
-    font-size:20px;
-    margin-bottom:5px;
+    font-size:15px;
     font-weight:700;
 }
 
 .member-content span{
-    font-size:14px;
-    font-style:italic;
-    color:#888;
+    font-size:12px;
 }
 
 .member-content p{
-    min-height:80px;
-    font-size:14px;
-    line-height:1.7;
-    margin-top:12px;
+    font-size:11px;
+    line-height:1.5;
 }
+
+
 
 
 /* =========================
