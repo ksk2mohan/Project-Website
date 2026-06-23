@@ -220,94 +220,119 @@ h6 {
 /*--------------------------------------------------------------
 Editted
 --------------------------------------------------------------*/
-/* Partner cards */
-.trainers-index .member{
-    text-align:center;
-    border-radius:15px;
-    padding:20px;
-    height:100%;
-}
 
-/* Fixed logo area */
+/* =========================
+   Partner Section
+========================= */
+
 .partner-logo-box{
-    height:180px;               /* same area for all logos */
+    width:100%;
+    height:180px;
     display:flex;
-    justify-content:center;     /* horizontal center */
-    align-items:center;         /* vertical center */
+    justify-content:center;
+    align-items:center;
     margin-bottom:20px;
 }
 
-/* Same logo size */
 .partner-logo{
-    width:160px;
-    height:160px;
+    max-width:160px;
+    max-height:160px;
+    width:auto;
+    height:auto;
     object-fit:contain;
-    display:block;
 }
 
-/* Equal text alignment */
-.member-content{
-    min-height:160px;
-}
 
-.member-content p{
-    min-height:70px;
-}
+/* =========================
+   Team & Partner Cards
+========================= */
 
-/* Team cards */
 .trainers-index .member{
     text-align:center;
     border-radius:15px;
     overflow:hidden;
     height:100%;
-    padding-bottom:20px;
+    padding:20px;
+    transition:all 0.3s ease;
 }
 
-/* Same image area for all members */
+.trainers-index .member:hover{
+    transform:translateY(-8px);
+}
+
+
+/* =========================
+   Team Images
+========================= */
+
 .team-img-box{
     width:100%;
     height:240px;
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
     background:#fff;
+    overflow:hidden;
+    margin-bottom:20px;
 }
 
-/* Same image size */
 .team-img{
     width:180px;
     height:220px;
     object-fit:cover;
-    border-radius:10px;
+    border-radius:12px;
 }
 
-/* Equal content height */
+
+/* =========================
+   Content Area
+========================= */
+
 .member-content{
     min-height:190px;
+
     display:flex;
     flex-direction:column;
-    justify-content:flex-start;
     align-items:center;
+    justify-content:flex-start;
 }
 
 .member-content h4{
     font-size:20px;
     margin-bottom:5px;
+    font-weight:700;
 }
 
 .member-content span{
-    color:#888;
+    font-size:14px;
     font-style:italic;
+    color:#888;
 }
 
 .member-content p{
     min-height:80px;
     font-size:14px;
+    line-height:1.7;
+    margin-top:12px;
 }
+
+
+/* =========================
+   Social Icons
+========================= */
 
 .social{
     margin-top:auto;
+}
+
+.social a{
+    margin:0 5px;
+    color:#777;
+    transition:0.3s;
+}
+
+.social a:hover{
+    color:#5fcf80;
 }
 
 /*--------------------------------------------------------------
