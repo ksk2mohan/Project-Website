@@ -298,43 +298,6 @@ Editted
     line-height:1.5;
 }
 
-/* ===========================
-   Research Theme Images
-=========================== */
-
-.research-img{
-    width:100%;
-    height:300px;
-    overflow:hidden;
-}
-
-.research-img img{
-    width:100% !important;
-    height:100% !important;
-    object-fit:cover;
-    display:block;
-}
-
-/* Equal card heights */
-.course-item{
-    height:100%;
-    display:flex;
-    flex-direction:column;
-}
-
-.course-content{
-    flex:1;
-    display:flex;
-    flex-direction:column;
-}
-
-.description{
-    min-height:80px;
-}
-
-.trainer{
-    margin-top:auto;
-}
 
 
 
