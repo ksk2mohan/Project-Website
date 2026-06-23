@@ -221,30 +221,37 @@ h6 {
 Editted
 --------------------------------------------------------------*/
 /* Partner cards */
-.member{
+.trainers-index .member{
     text-align:center;
     border-radius:15px;
-    overflow:hidden;
+    padding:20px;
+    height:100%;
 }
 
-/* Partner logos */
+/* Fixed logo area */
+.partner-logo-box{
+    height:180px;               /* same area for all logos */
+    display:flex;
+    justify-content:center;     /* horizontal center */
+    align-items:center;         /* vertical center */
+    margin-bottom:20px;
+}
+
+/* Same logo size */
 .partner-logo{
-    max-width:220px;
-    max-height:180px;
-    width:auto;
-    height:auto;
+    width:160px;
+    height:160px;
     object-fit:contain;
     display:block;
-    margin:20px auto;
 }
 
-/* Text area */
+/* Equal text alignment */
 .member-content{
-    padding:20px;
+    min-height:160px;
 }
 
 .member-content p{
-    min-height:90px;
+    min-height:70px;
 }
 
 /*--------------------------------------------------------------
