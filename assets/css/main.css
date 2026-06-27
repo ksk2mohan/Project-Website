@@ -87,6 +87,23 @@ h6 {
   font-family: var(--heading-font);
 }
 
+.hero:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+.hero .container{
+    position: relative;
+    z-index: 2;
+}
+@media (max-width:768px){
+    .bc-logo img{
+        width:150px;
+    }
+}
 /* PHP Email Form Messages
 ------------------------------*/
 .php-email-form .error-message {
