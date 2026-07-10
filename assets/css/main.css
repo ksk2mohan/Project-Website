@@ -56,43 +56,47 @@
 :root {
   scroll-behavior: smooth;
 }
-/* Announcement Bar */
+/* ===== Announcement Bar ===== */
 
 .announcement-bar{
     width:100%;
-    overflow:hidden;
     background:#0b2d5c;
     color:#fff;
-    padding:12px 0;
-    border-top:3px solid #7CFC00;
-    border-bottom:3px solid #7CFC00;
-    position:relative;
-    z-index:999;
+    overflow:hidden;
+    height:42px;
+    line-height:42px;
+    border-top:2px solid #7CFC00;
+    border-bottom:2px solid #7CFC00;
+    white-space:nowrap;
 }
 
 .news-track{
     display:inline-block;
     white-space:nowrap;
     padding-left:100%;
-    animation:newsScroll 28s linear infinite;
+    animation:scrollNews 35s linear infinite;
     font-size:16px;
-    font-weight:600;
+    font-weight:500;
 }
 
 .news-track:hover{
     animation-play-state:paused;
 }
 
-.highlight{
+.news-track strong{
     color:#FFD700;
+}
+
+.highlight{
+    color:#7CFC00;
     font-weight:700;
 }
 
-@keyframes newsScroll{
-    from{
+@keyframes scrollNews{
+    0%{
         transform:translateX(0);
     }
-    to{
+    100%{
         transform:translateX(-100%);
     }
 }
