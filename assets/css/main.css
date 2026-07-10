@@ -56,7 +56,46 @@
 :root {
   scroll-behavior: smooth;
 }
+/* Announcement Bar */
 
+.announcement-bar{
+    width:100%;
+    overflow:hidden;
+    background:#0b2d5c;
+    color:#fff;
+    padding:12px 0;
+    border-top:3px solid #7CFC00;
+    border-bottom:3px solid #7CFC00;
+    position:relative;
+    z-index:999;
+}
+
+.news-track{
+    display:inline-block;
+    white-space:nowrap;
+    padding-left:100%;
+    animation:newsScroll 28s linear infinite;
+    font-size:16px;
+    font-weight:600;
+}
+
+.news-track:hover{
+    animation-play-state:paused;
+}
+
+.highlight{
+    color:#FFD700;
+    font-weight:700;
+}
+
+@keyframes newsScroll{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-100%);
+    }
+}
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
