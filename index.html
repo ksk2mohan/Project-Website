@@ -26,13 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-  <script>
-  fetch("https://api.countapi.xyz/hit/aqvs-vit-website/total")
-  .then(res => res.json())
-  .then(res => {
-  document.getElementById("visitorCount").innerHTML = res.value;
-  });
-  </script>
+
 
   <!-- =======================================================
   * Template Name: Mentor
@@ -1066,6 +1060,13 @@ Knowledge Transfer Activities.
 <span id="visitorCount">Loading...</span>
 
 </div>
+<script>
+  fetch("https://api.countapi.xyz/hit/aqvs-vit-website/total")
+  .then(res => res.json())
+  .then(res => {
+  document.getElementById("visitorCount").innerHTML = res.value;
+  });
+</script>
 </center>
 </section>
 
