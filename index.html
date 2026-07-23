@@ -26,6 +26,13 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <script>
+  fetch("https://api.countapi.xyz/hit/aqvs-vit-website/total")
+  .then(res => res.json())
+  .then(res => {
+  document.getElementById("visitorCount").innerHTML = res.value;
+  });
+  </script>
 
   <!-- =======================================================
   * Template Name: Mentor
@@ -1050,7 +1057,16 @@ Knowledge Transfer Activities.
     </div>
 
   </div>
+<center><div class="text-center mt-3">
 
+<i class="bi bi-eye-fill text-success"></i>
+
+<strong>Total Visitors:</strong>
+
+<span id="visitorCount">Loading...</span>
+
+</div>
+</center>
 </section>
 
   </main>
