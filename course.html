@@ -953,6 +953,7 @@ const participants = [
   }
 ];
 const participantListDownloadUrl = 'assets/participants-final-list.pdf';
+
 /* =========================== END UPDATE AREA =========================== */
 
 function initials(name){return name.replace(/\b(Mr|Ms|Dr|Prof)\.?\s*/gi,'').split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase()||'RP'}
