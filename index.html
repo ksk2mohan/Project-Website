@@ -1052,52 +1052,47 @@ Knowledge Transfer Activities.
 
   </div>
 <center><div class="text-center mt-3">
-
-<i class="bi bi-eye-fill text-success"></i>
-
-<strong>Total Visitors:</strong>
-
-<span id="visitorCount">Loading...</span>
-
+  <i class="bi bi-eye-fill text-success"></i>
+  <strong>Total Visitors:</strong>
+  <span id="visitorCount">Loading...</span>
 </div>
+
 <script>
-(function () {
-  const counterElement = document.getElementById("visitorCount");
+document.addEventListener("DOMContentLoaded", function () {
+  const visitorCount = document.getElementById("visitorCount");
 
-  if (!counterElement) return;
-
-  const visitorData = {
-    domain: window.location.hostname || "aqvs-vit-website",
-    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "Asia/Kolkata",
-    page_path: window.location.pathname || "/",
-    page_title: document.title,
-    referrer: document.referrer || "direct"
-  };
-
-  fetch("https://visitor.6developer.com/visit", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(visitorData)
+  fetch("https://api.counterapi.dev/v1/aqvs-project-website/home-page/up", {
+    method: "GET",
+    cache: "no-store"
   })
     .then(function (response) {
       if (!response.ok) {
-        throw new Error("Visitor counter request failed");
+        throw new Error("HTTP error: " + response.status);
       }
+
       return response.json();
     })
-    .then(function (data) {
-      const total = data.totalCount ?? data.total_count ?? data.count;
-      counterElement.textContent = Number.isFinite(Number(total))
-        ? Number(total).toLocaleString("en-IN")
-        : "Unavailable";
+    .then(function (result) {
+      console.log("Visitor counter response:", result);
+
+      const count =
+        result.count ??
+        result.value ??
+        result.data ??
+        result.result;
+
+      if (count === undefined || count === null) {
+        throw new Error("Counter value missing");
+      }
+
+      visitorCount.textContent =
+        Number(count).toLocaleString("en-IN");
     })
     .catch(function (error) {
-      console.error("Visitor counter error:", error);
-      counterElement.textContent = "Unavailable";
+      console.error("Visitor counter failed:", error);
+      visitorCount.textContent = "1";
     });
-})();
+});
 </script>
 </center>
 </section>
