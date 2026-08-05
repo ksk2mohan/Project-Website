@@ -1061,11 +1061,43 @@ Knowledge Transfer Activities.
 
 </div>
 <script>
-  fetch("https://api.countapi.xyz/hit/aqvs-vit-website/total")
-  .then(res => res.json())
-  .then(res => {
-  document.getElementById("visitorCount").innerHTML = res.value;
-  });
+(function () {
+  const counterElement = document.getElementById("visitorCount");
+
+  if (!counterElement) return;
+
+  const visitorData = {
+    domain: window.location.hostname || "aqvs-vit-website",
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "Asia/Kolkata",
+    page_path: window.location.pathname || "/",
+    page_title: document.title,
+    referrer: document.referrer || "direct"
+  };
+
+  fetch("https://visitor.6developer.com/visit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(visitorData)
+  })
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Visitor counter request failed");
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      const total = data.totalCount ?? data.total_count ?? data.count;
+      counterElement.textContent = Number.isFinite(Number(total))
+        ? Number(total).toLocaleString("en-IN")
+        : "Unavailable";
+    })
+    .catch(function (error) {
+      console.error("Visitor counter error:", error);
+      counterElement.textContent = "Unavailable";
+    });
+})();
 </script>
 </center>
 </section>
