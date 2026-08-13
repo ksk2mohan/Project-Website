@@ -1057,43 +1057,45 @@ Knowledge Transfer Activities.
   <span id="visitorCount">Loading...</span>
 </div>
 
-<!-- CounterAPI Browser Library -->
-<script src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const display = document.getElementById("visitorCount");
+  const counterElement = document.getElementById("visitorCount");
 
-  // V1 is used because it does not require an API key
-  const visitorCounter = new Counter({
-    version: "v1",
-    namespace: "ksk2mohan-github-aqvs"
+  // Use a unique permanent key for the AQVS website
+  const counterURL =
+    "https://countapi.mileshilliard.com/api/v1/hit/aqvs-vit-project-website-total-visitors";
+
+  fetch(counterURL, {
+    method: "GET",
+    cache: "no-store"
+  })
+  .then(function(response) {
+
+    if (!response.ok) {
+      throw new Error("HTTP Error: " + response.status);
+    }
+
+    return response.json();
+  })
+  .then(function(data) {
+
+    console.log("Visitor counter response:", data);
+
+    if (data.value !== undefined) {
+      counterElement.textContent =
+        Number(data.value).toLocaleString("en-IN");
+    } else {
+      throw new Error("Visitor value not returned");
+    }
+
+  })
+  .catch(function(error) {
+
+    console.error("Visitor Counter Error:", error);
+
+    counterElement.textContent = "Unavailable";
   });
-
-  visitorCounter
-    .up("project-website-visitors")
-    .then(function (result) {
-
-      console.log("Counter result:", result);
-
-      const count = result.value ?? result.count;
-
-      if (count !== undefined && count !== null) {
-        display.textContent =
-          Number(count).toLocaleString("en-IN");
-      } else {
-        display.textContent = "0";
-      }
-
-    })
-    .catch(function (error) {
-
-      console.error("Visitor counter failed:", error);
-
-      display.textContent = "Counter unavailable";
-
-    });
 
 });
 </script>
