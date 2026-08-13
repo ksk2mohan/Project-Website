@@ -1057,58 +1057,45 @@ Knowledge Transfer Activities.
   <span id="visitorCount">Loading...</span>
 </div>
 
+<!-- CounterAPI Browser Library -->
+<script src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
+
 <script>
-(async function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-  const counter =
-    document.getElementById("visitorCount");
+  const display = document.getElementById("visitorCount");
 
-  const url =
-    "https://api.counterapi.dev/v1/aqvs-vit-project/website-visits/up";
+  // V1 is used because it does not require an API key
+  const visitorCounter = new Counter({
+    version: "v1",
+    namespace: "ksk2mohan-github-aqvs"
+  });
 
-  try {
+  visitorCounter
+    .up("project-website-visitors")
+    .then(function (result) {
 
-    const response = await fetch(url);
+      console.log("Counter result:", result);
 
-    if (!response.ok) {
-      throw new Error(
-        `HTTP ${response.status}`
-      );
-    }
+      const count = result.value ?? result.count;
 
-    const data = await response.json();
+      if (count !== undefined && count !== null) {
+        display.textContent =
+          Number(count).toLocaleString("en-IN");
+      } else {
+        display.textContent = "0";
+      }
 
-    console.log(
-      "Counter API response:",
-      data
-    );
+    })
+    .catch(function (error) {
 
-    if (
-      typeof data.count === "number"
-    ) {
+      console.error("Visitor counter failed:", error);
 
-      counter.textContent =
-        data.count.toLocaleString("en-IN");
+      display.textContent = "Counter unavailable";
 
-    } else {
+    });
 
-      throw new Error(
-        "count field not returned"
-      );
-
-    }
-
-  } catch (error) {
-
-    console.error(
-      "CounterAPI error:",
-      error
-    );
-
-    counter.textContent = "—";
-  }
-
-})();
+});
 </script>
 </center>
 </section>
