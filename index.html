@@ -1058,41 +1058,57 @@ Knowledge Transfer Activities.
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const visitorCount = document.getElementById("visitorCount");
+(async function () {
 
-  fetch("https://api.counterapi.dev/v1/aqvs-project-website/home-page/up", {
-    method: "GET",
-    cache: "no-store"
-  })
-    .then(function (response) {
-      if (!response.ok) {
-        throw new Error("HTTP error: " + response.status);
-      }
+  const counter =
+    document.getElementById("visitorCount");
 
-      return response.json();
-    })
-    .then(function (result) {
-      console.log("Visitor counter response:", result);
+  const url =
+    "https://api.counterapi.dev/v1/aqvs-vit-project/website-visits/up";
 
-      const count =
-        result.count ??
-        result.value ??
-        result.data ??
-        result.result;
+  try {
 
-      if (count === undefined || count === null) {
-        throw new Error("Counter value missing");
-      }
+    const response = await fetch(url);
 
-      visitorCount.textContent =
-        Number(count).toLocaleString("en-IN");
-    })
-    .catch(function (error) {
-      console.error("Visitor counter failed:", error);
-      visitorCount.textContent = "1";
-    });
-});
+    if (!response.ok) {
+      throw new Error(
+        `HTTP ${response.status}`
+      );
+    }
+
+    const data = await response.json();
+
+    console.log(
+      "Counter API response:",
+      data
+    );
+
+    if (
+      typeof data.count === "number"
+    ) {
+
+      counter.textContent =
+        data.count.toLocaleString("en-IN");
+
+    } else {
+
+      throw new Error(
+        "count field not returned"
+      );
+
+    }
+
+  } catch (error) {
+
+    console.error(
+      "CounterAPI error:",
+      error
+    );
+
+    counter.textContent = "—";
+  }
+
+})();
 </script>
 </center>
 </section>
